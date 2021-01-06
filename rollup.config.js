@@ -20,7 +20,7 @@ export default {
 		format: target,
 		sourcemap: 'inline',
 	},
-	external: ['@babel/plugin-transform-runtime'],
+	external: id => !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/'),
 	plugins: [
 		svelte(),
 		babel({
@@ -31,7 +31,7 @@ export default {
 		commonjs(),
 		production && terser(),
 		visualizer({
-			sourcemap: true
-		})
+			sourcemap: true,
+		}),
 	],
 }
