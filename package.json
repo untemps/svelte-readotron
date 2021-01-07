@@ -50,9 +50,6 @@
 		"semantic-release": "^17.3.0",
 		"svelte": "^3.31.1"
 	},
-	"peerDependencies": {
-		"lodash": "^4.17.20"
-	},
 	"jest": {
 		"coverageDirectory": "./coverage/",
 		"collectCoverage": true,

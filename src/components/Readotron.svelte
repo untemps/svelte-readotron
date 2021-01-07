@@ -1,9 +1,9 @@
 <script>
     import {onDestroy, onMount} from 'svelte'
-    import {template as templateFn, templateSettings} from 'lodash'
 
     import ReadingTimer from '../core/ReadingTimer'
     import DOMWaiter from '../core/DOMWaiter'
+    import interpolate from '../utils/interpolate'
 
     export let selector
     export let lang = 'en'
@@ -15,8 +15,6 @@
 
     let waiter = null
     let timer = null
-
-    templateSettings.interpolate = /%([\s\S]+?)%/g
 
     onMount(async () => {
         if (!selector) {
@@ -40,7 +38,7 @@
 
 <span {...$$restProps}>
     {#if !!readingTime && !!template}
-        {templateFn(template)({time: readingTime})}
+        {interpolate(template, {time: readingTime}, '%')}
     {/if}
     {#if !!error}
         {error}
