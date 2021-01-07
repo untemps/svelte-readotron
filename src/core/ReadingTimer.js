@@ -20,20 +20,20 @@ class ReadingTimer {
 	}
 
 	getTime(text, lang) {
-		if(!ReadingTimer.isLangExist(lang)) {
+		if (!ReadingTimer.isLangExist(lang)) {
 			return 0
 		}
 		const wpm = ReadingTimer.wpmValues[lang]
 		const wordCount = this.getWordCount(text)
-		return Math.ceil(wordCount / wpm);
+		return Math.ceil(wordCount / wpm)
 	}
 
 	getWordCount(text) {
 		if (!text) {
 			return 0
 		}
-		const value = text.trim();
-		return value.split(/\s+/).length;
+		const value = text.trim()
+		return value.split(/\s+/).length
 	}
 }
 

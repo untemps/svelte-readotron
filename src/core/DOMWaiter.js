@@ -12,7 +12,7 @@ class DOMWaiter {
 			}
 
 			const error = new Error(`Error: Element ${selector} cannot be found`)
-			if(timeout > 0) {
+			if (timeout > 0) {
 				this._timeout = setTimeout(() => {
 					this.unwait()
 					reject(error)
@@ -20,7 +20,6 @@ class DOMWaiter {
 			} else {
 				reject(error)
 			}
-
 
 			this._observer = new MutationObserver((mutations) => {
 				mutations.forEach((mutation) => {
