@@ -1,5 +1,5 @@
 class ReadingTimer {
-	static wpmValues = Object.freeze({
+	static rates = Object.freeze({
 		default: 200,
 		ar: 181,
 		zh: 260,
@@ -16,16 +16,16 @@ class ReadingTimer {
 	})
 
 	static isLangExist(lang) {
-		return !!lang && !!ReadingTimer.wpmValues[lang]
+		return !!lang && !!ReadingTimer.rates[lang]
 	}
 
 	getTime(text, lang) {
 		if (!ReadingTimer.isLangExist(lang)) {
 			return 0
 		}
-		const wpm = ReadingTimer.wpmValues[lang]
+		const rate = ReadingTimer.rates[lang]
 		const wordCount = this.getWordCount(text)
-		return Math.ceil(wordCount / wpm)
+		return Math.ceil(wordCount / rate)
 	}
 
 	getWordCount(text) {
