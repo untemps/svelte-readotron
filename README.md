@@ -24,7 +24,7 @@ yarn add @untemps/svelte-readotron
 
 ### Basic usage
 
-```sveltehtml
+```html
 <script>
     import Readotron from '@untemps/svelte-readotron'
 </script>
@@ -64,7 +64,7 @@ If the lang is not one of the listed ones or is undefined, the default value wil
 
 #### Example
 
-```sveltehtml
+```html
 <script>
     import Readotron from '@untemps/svelte-readotron'
 </script>
@@ -88,7 +88,7 @@ A template is a string with one or more tokens delimited with `%`
 
 #### Example
 
-```sveltehtml
+```html
 <script>
     import Readotron from '@untemps/svelte-readotron'
 </script>
@@ -106,7 +106,7 @@ That means you can use the `class` attribute to customize the style of the compo
 
 #### Example
 
-```sveltehtml
+```html
 <script>
     import Readotron from '@untemps/svelte-readotron'
 </script>
