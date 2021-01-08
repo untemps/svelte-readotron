@@ -95,7 +95,7 @@ A template is a string with one or more tokens delimited with `%`
 
 <main>
     <Readotron selector=".text" template="Reading Time: %time% minutes"/>
-	<section class="content"/>
+    <section class="content"/>
 </main>
 ```
 
