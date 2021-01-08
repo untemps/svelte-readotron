@@ -36,11 +36,15 @@
     })
 </script>
 
-<span {...$$restProps}>
-    {#if !!readingTime && !!template}
-        {interpolate(template, {time: readingTime}, '%')}
-    {/if}
-    {#if !!error}
-        {error}
-    {/if}
-</span>
+{#if $$slots.content}
+    <slot name="content" time={readingTime}/>
+{:else}
+    <span {...$$restProps}>
+        {#if !!readingTime && !!template}
+            {interpolate(template, {time: readingTime}, '%')}
+        {/if}
+        {#if !!error}
+            {error}
+        {/if}
+    </span>
+{/if}

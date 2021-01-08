@@ -31,7 +31,7 @@ yarn add @untemps/svelte-readotron
 
 <main>
     <Readotron selector=".text"/>
-    <section class="content"/>
+    <section class="text"/>
 </main>
 ```
 
@@ -71,7 +71,7 @@ If the lang is not one of the listed ones or is undefined, the default value wil
 
 <main>
     <Readotron selector=".text" lang="en"/>
-    <section class="content"/>
+    <section class="text"/>
 </main>
 ```
 
@@ -95,7 +95,38 @@ A template is a string with one or more tokens delimited with `%`
 
 <main>
     <Readotron selector=".text" template="Reading Time: %time% minutes"/>
-    <section class="content"/>
+    <section class="text"/>
+</main>
+```
+
+### Slot
+
+Another way to customize the display is to use the `<slot>` element.  
+If a `<slot>` is passed as Readotron child and correctly set (see below), it will be rendered instead of the default layout. This has precedence over the `template` prop.
+This allows to set a specific tag as parent if needed.
+
+#### Constraint: 
+The `<slot>` element has to be set with the prop `slot="content"`
+
+#### Avalaible tokens
+
+Like `template`, you have access to the same tokens to display dynamic values:
+| Token         | Description                                                                                                      |
+| ------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `time`        | Estimated reading time (in minutes)                                                                              |
+
+#### Example
+
+```html
+<script>
+    import Readotron from '@untemps/svelte-readotron'
+</script>
+
+<main>
+    <Readotron selector=".text">
+        <span slot="content" let:time={time}>{time} min</span>
+    </Readotron>
+    <section class="text"/>
 </main>
 ```
 
@@ -113,7 +144,7 @@ That means you can use the `class` attribute to customize the style of the compo
 
 <main>
     <Readotron selector=".text" class="readotron"/>
-    <section class="content"/>
+    <section class="text"/>
 </main>
 
 <style>
