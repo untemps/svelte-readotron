@@ -31,7 +31,7 @@ yarn add @untemps/svelte-readotron
 
 <main>
     <Readotron selector=".text"/>
-    <section class="content"/>
+    <section class="text"/>
 </main>
 ```
 
@@ -71,7 +71,7 @@ If the lang is not one of the listed ones or is undefined, the default value wil
 
 <main>
     <Readotron selector=".text" lang="en"/>
-    <section class="content"/>
+    <section class="text"/>
 </main>
 ```
 
@@ -95,7 +95,7 @@ A template is a string with one or more tokens delimited with `%`
 
 <main>
     <Readotron selector=".text" template="Reading Time: %time% minutes"/>
-    <section class="content"/>
+    <section class="text"/>
 </main>
 ```
 
@@ -113,7 +113,7 @@ That means you can use the `class` attribute to customize the style of the compo
 
 <main>
     <Readotron selector=".text" class="readotron"/>
-    <section class="content"/>
+    <section class="text"/>
 </main>
 
 <style>
