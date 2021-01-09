@@ -110,7 +110,8 @@ The `<slot>` element has to be set with the prop `slot="content"`
 
 #### Avalaible tokens
 
-Like `template`, you have access to the same tokens to display dynamic values:
+Like `template`, tokens are passed back to the component to display dynamic values (see [Svelte API <slot let:name={value}>](https://svelte.dev/docs#slot_let)):
+
 | Token         | Description                                                                                                      |
 | ------------- | ---------------------------------------------------------------------------------------------------------------- |
 | `time`        | Estimated reading time (in minutes)                                                                              |
@@ -129,6 +130,8 @@ Like `template`, you have access to the same tokens to display dynamic values:
     <section class="text"/>
 </main>
 ```
+
+Please see the [Svelte API documentation](https://svelte.dev/docs#slot) to know more about the `<slot>` element.
 
 ### Styles
 
@@ -153,6 +156,21 @@ That means you can use the `class` attribute to customize the style of the compo
         font-weight: 600;
     }
 </style>
+```
+
+If you use a `<slot>` element, as it will replace the original layout, you have to switch the class name from the `<Readotron>` element to the `<slot>` element.
+
+```html
+<script>
+    import Readotron from '@untemps/svelte-readotron'
+</script>
+
+<main>
+    <Readotron selector=".text">
+        <span class="readotron" slot="content" let:time={time}>{time} min</span>
+    </Readotron>
+    <section class="text"/>
+</main>
 ```
 
 ### API
