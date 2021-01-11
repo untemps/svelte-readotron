@@ -102,15 +102,15 @@ A template is a string with one or more tokens delimited with `%`
 ### Slot
 
 Another way to customize the display is to use the `<slot>` element.  
-If a `<slot>` is passed as Readotron child and correctly set (see below), it will be rendered instead of the default layout. This has precedence over the `template` prop.
+If a `<slot>` is passed in as Readotron child and correctly set (see Constraints below), it will be rendered instead of the default layout. This has precedence over the `template` prop.  
 This allows to set a specific tag as parent if needed.
 
-#### Constraint: 
+#### Constraints: 
 The `<slot>` element has to be set with the prop `slot="content"`
 
 #### Avalaible tokens
 
-Like `template`, tokens are passed back to the component to display dynamic values (see [Svelte API <slot let:name={value}>](https://svelte.dev/docs#slot_let)):
+Like `template`, tokens are passed back to the component to display dynamic values (see [Svelte API documentation](https://svelte.dev/docs#slot_let)):
 
 | Token         | Description                                                                                                      |
 | ------------- | ---------------------------------------------------------------------------------------------------------------- |
