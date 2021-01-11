@@ -7,7 +7,8 @@
     const getContent = async () => {
         try {
             const res = await fetch(`https://baconipsum.com/api/?type=all-meat&paras=${paragraphCount}&format=html`)
-            return await res.text()
+            const text = await res.text()
+            return text.replace(/<p>/, '<p class="headline">')
         } catch (err) {
             throw err;
         }
@@ -49,17 +50,19 @@
 
 <style>
     main {
+        font-family: Vollkorn, serif;
         font-size: 14px;
+        font-weight: 400;
         padding: 1em;
-        max-width: 240px;
+        max-width: 85%;
         margin: 0 auto;
     }
 
     h1 {
         color: #a3c428;
-        font-family: Bree, serif;
+        font-size: 6em;
         font-weight: 600;
-        font-size: 4em;
+        font-style: italic;
     }
 
     .infos {
@@ -101,9 +104,14 @@
         text-align: left;
     }
 
+    :global(.text .headline) {
+        font-size: 1.7em;
+        color: #666;
+    }
+
     @media (min-width: 640px) {
         main {
-            max-width: none;
+            max-width: 70%;
         }
     }
 </style>
