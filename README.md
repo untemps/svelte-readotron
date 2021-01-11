@@ -125,7 +125,7 @@ Like `template`, tokens are passed back to the component to display dynamic valu
 
 <main>
     <Readotron selector=".text">
-        <span slot="content" let:time={time}>{time} min</span>
+        <span slot="content" let:time>{time} min</span>
     </Readotron>
     <section class="text"/>
 </main>
