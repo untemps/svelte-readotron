@@ -99,6 +99,40 @@ A template is a string with one or more tokens delimited with `%`
 </main>
 ```
 
+### Slot
+
+Another way to customize the display is to use the `<slot>` element.  
+If a `<slot>` is passed in as Readotron child and correctly set (see Constraints below), it will be rendered instead of the default layout. This has precedence over the `template` prop.  
+This allows to set a specific tag as parent if needed.
+
+#### Constraints: 
+The `<slot>` element has to be set with the prop `slot="content"`
+
+#### Avalaible tokens
+
+Like `template`, tokens are passed back to the component to display dynamic values (see [Svelte API documentation](https://svelte.dev/docs#slot_let)):
+
+| Token         | Description                                                                                                      |
+| ------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `time`        | Estimated reading time (in minutes)                                                                              |
+
+#### Example
+
+```html
+<script>
+    import Readotron from '@untemps/svelte-readotron'
+</script>
+
+<main>
+    <Readotron selector=".text">
+        <span slot="content" let:time>{time} min</span>
+    </Readotron>
+    <section class="text"/>
+</main>
+```
+
+Please see the [Svelte API documentation](https://svelte.dev/docs#slot) to know more about the `<slot>` element.
+
 ### Styles
 
 All HTML attributes are automatically passed to the parent element of the component (`span`).  
@@ -122,6 +156,21 @@ That means you can use the `class` attribute to customize the style of the compo
         font-weight: 600;
     }
 </style>
+```
+
+If you use a `<slot>` element, as it will replace the original layout, you have to switch the class name from the `<Readotron>` element to the `<slot>` element.
+
+```html
+<script>
+    import Readotron from '@untemps/svelte-readotron'
+</script>
+
+<main>
+    <Readotron selector=".text">
+        <span class="readotron" slot="content" let:time={time}>{time} min</span>
+    </Readotron>
+    <section class="text"/>
+</main>
 ```
 
 ### API

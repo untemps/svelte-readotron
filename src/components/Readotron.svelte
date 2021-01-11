@@ -9,7 +9,7 @@
     export let lang = 'en'
     export let template = '%time% min read'
 
-    let readingTime = 0
+    let time = 0
     let wordCount = 0
     let error = null
 
@@ -25,7 +25,7 @@
             const el = await waiter.wait(selector)
 
             timer = new ReadingTimer()
-            readingTime = timer.getTime(el.textContent, lang)
+            time = timer.getTime(el.textContent, lang)
         } catch (err) {
             error = err.message
         }
@@ -36,11 +36,15 @@
     })
 </script>
 
-<span {...$$restProps}>
-    {#if !!readingTime && !!template}
-        {interpolate(template, {time: readingTime}, '%')}
-    {/if}
-    {#if !!error}
-        {error}
-    {/if}
-</span>
+{#if $$slots.content}
+    <slot name="content" {time}/>
+{:else}
+    <span {...$$restProps}>
+        {#if !!time && !!template}
+            {interpolate(template, {time}, '%')}
+        {/if}
+        {#if !!error}
+            {error}
+        {/if}
+    </span>
+{/if}

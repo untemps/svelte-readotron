@@ -26,8 +26,9 @@
     <div class="infos">By <img class="avatar" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
                                alt="Thomas Teack"><span class="name">Thomas Teack</span> Oct 19, 2021 -
         {#await contentP then _}
-            <Readotron class="readotron" selector=".text"
-                       template="Estimated Reading Time: %time% minutes"/>
+            <Readotron class="readotron" selector=".text">
+                <span slot="content" let:time>{time} min</span>
+            </Readotron>
         {/await}
     </div>
     <section class="options">
