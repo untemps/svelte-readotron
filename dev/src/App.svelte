@@ -7,7 +7,8 @@
     const getContent = async () => {
         try {
             const res = await fetch(`https://baconipsum.com/api/?type=all-meat&paras=${paragraphCount}&format=html`)
-            return await res.text()
+            const text = await res.text()
+            return text.replace(/<p>/, '<p class="headline">')
         } catch (err) {
             throw err;
         }
@@ -26,15 +27,16 @@
     <div class="infos">By <img class="avatar" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
                                alt="Thomas Teack"><span class="name">Thomas Teack</span> Oct 19, 2021 -
         {#await contentP then _}
-            <Readotron class="readotron" selector=".text">
-                <span slot="content" let:time>{time} min</span>
-            </Readotron>
+            <Readotron class="readotron" selector=".text"
+                       template="%time% minutes"/>
         {/await}
     </div>
     <section class="options">
-        <label for="paragraphCount">Paragraph Count: {paragraphCount}</label>
+        <h3>Settings</h3>
+        <label for="paragraphCount">Paragraph Count</label>
         <input id="paragraphCount" type="range" min="5" max="50" step="5" value={paragraphCount}
                on:change={onParagraphCountChange}>
+        <span>{paragraphCount}</span>
     </section>
     <section class="content">
         {#await contentP}
@@ -49,17 +51,20 @@
 
 <style>
     main {
-        font-size: 14px;
+        font-family: Rubik, sans-serif;
+        font-size: 2em;
+        font-weight: 400;
         padding: 1em;
-        max-width: 240px;
+        max-width: 85%;
         margin: 0 auto;
     }
 
     h1 {
+        font-family: Vollkorn, serif;
         color: #a3c428;
-        font-family: Bree, serif;
+        font-size: 6em;
         font-weight: 600;
-        font-size: 4em;
+        font-style: italic;
     }
 
     .infos {
@@ -67,7 +72,7 @@
     }
 
     .infos .avatar {
-        width: 24px;
+        width: 48px;
         border-radius: 50%;
         vertical-align: middle;
         margin-right: 4px;
@@ -84,9 +89,19 @@
     }
 
     .options {
-        position: absolute;
+        position: fixed;
         right: 20px;
-        top: 130px;
+        top: 20px;
+        font-size: 0.5em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: aliceblue;
+        padding: 30px 20px;
+    }
+
+    .options span {
+        font-size: 3em;
     }
 
     .content {
@@ -101,9 +116,13 @@
         text-align: left;
     }
 
+    :global(.text .headline) {
+        color: #666;
+    }
+
     @media (min-width: 640px) {
         main {
-            max-width: none;
+            max-width: 70%;
         }
     }
 </style>
