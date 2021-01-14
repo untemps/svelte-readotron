@@ -28,7 +28,7 @@
                                alt="Thomas Teack"><span class="name">Thomas Teack</span> Oct 19, 2021 -
         {#await contentP then _}
             <Readotron class="readotron" selector=".text"
-                       template="%time% minutes"/>
+                       template="%time% minutes (%words% words)"/>
         {/await}
     </div>
     <section class="options">

@@ -82,6 +82,7 @@ A template is a string with one or more tokens delimited with `%`
 | Token         | Description                                                                                                      |
 | ------------- | ---------------------------------------------------------------------------------------------------------------- |
 | `time`        | Estimated reading time (in minutes)                                                                              |
+| `words`       | Number of words                                                                                                  |
 
 #### Example
 
@@ -91,7 +92,7 @@ A template is a string with one or more tokens delimited with `%`
 </script>
 
 <main>
-    <Readotron selector=".text" template="Reading Time: %time% minutes"/>
+    <Readotron selector=".text" template="Reading Time: %time% minutes (%words% words)"/>
     <section class="text"/>
 </main>
 ```
@@ -112,6 +113,7 @@ Like `template`, tokens are passed back to the component to display dynamic valu
 | Token         | Description                                                                                                      |
 | ------------- | ---------------------------------------------------------------------------------------------------------------- |
 | `time`        | Estimated reading time (in minutes)                                                                              |
+| `words`       | Number of words                                                                                                  |
 
 #### Example
 
