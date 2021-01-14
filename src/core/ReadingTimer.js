@@ -19,20 +19,21 @@ class ReadingTimer {
 		return !!lang && !!ReadingTimer.rates[lang]
 	}
 
-	getTime(text, lang = 'en') {
-		if (!ReadingTimer.isLangExist(lang) || text.length <= 0) {
+	getTime(text, lang) {
+		if (!ReadingTimer.isLangExist(lang)) {
 			return 0
 		}
 		const rate = ReadingTimer.rates[lang]
 		const wordCount = this.getWordCount(text)
-		return Math.max(Math.ceil(wordCount / rate), 0)
+		return Math.ceil(wordCount / rate)
 	}
 
 	getWordCount(text) {
 		if (!text) {
 			return 0
 		}
-		return text.trim().split(/\s+/).length
+		const value = text.trim()
+		return value.split(/\s+/).length
 	}
 }
 

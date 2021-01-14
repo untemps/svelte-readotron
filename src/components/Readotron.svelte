@@ -10,7 +10,7 @@
     export let template = '%time% min read'
 
     let time = 0
-    let wordCount = 0
+    let words = 0
     let error = null
 
     let waiter = null
@@ -25,7 +25,9 @@
             const el = await waiter.wait(selector)
 
             timer = new ReadingTimer()
-            time = timer.getTime(el.textContent, lang)
+            const values = timer.getValues(el.textContent, lang)
+            time = values.time
+            words = values.numWords
         } catch (err) {
             error = err.message
         }
@@ -37,11 +39,11 @@
 </script>
 
 {#if $$slots.content}
-    <slot name="content" {time}/>
+    <slot name="content" {time} {words}/>
 {:else}
     <span data-testid='__readotron-root__' {...$$restProps}>
         {#if !!time && !!template}
-            {interpolate(template, {time}, '%')}
+            {interpolate(template, {time, words}, '%')}
         {/if}
         {#if !!error}
             {error}
