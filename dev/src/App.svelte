@@ -27,15 +27,16 @@
     <div class="infos">By <img class="avatar" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
                                alt="Thomas Teack"><span class="name">Thomas Teack</span> Oct 19, 2021 -
         {#await contentP then _}
-            <Readotron class="readotron" selector=".text">
-                <span slot="content" let:time>{time} min</span>
-            </Readotron>
+            <Readotron class="readotron" selector=".text"
+                       template="%time% minutes"/>
         {/await}
     </div>
     <section class="options">
-        <label for="paragraphCount">Paragraph Count: {paragraphCount}</label>
+        <h3>Settings</h3>
+        <label for="paragraphCount">Paragraph Count</label>
         <input id="paragraphCount" type="range" min="5" max="50" step="5" value={paragraphCount}
                on:change={onParagraphCountChange}>
+        <span>{paragraphCount}</span>
     </section>
     <section class="content">
         {#await contentP}
@@ -50,8 +51,8 @@
 
 <style>
     main {
-        font-family: Vollkorn, serif;
-        font-size: 14px;
+        font-family: Rubik, sans-serif;
+        font-size: 2em;
         font-weight: 400;
         padding: 1em;
         max-width: 85%;
@@ -59,6 +60,7 @@
     }
 
     h1 {
+        font-family: Vollkorn, serif;
         color: #a3c428;
         font-size: 6em;
         font-weight: 600;
@@ -70,7 +72,7 @@
     }
 
     .infos .avatar {
-        width: 24px;
+        width: 48px;
         border-radius: 50%;
         vertical-align: middle;
         margin-right: 4px;
@@ -87,9 +89,19 @@
     }
 
     .options {
-        position: absolute;
+        position: fixed;
         right: 20px;
-        top: 130px;
+        top: 20px;
+        font-size: 0.5em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: aliceblue;
+        padding: 30px 20px;
+    }
+
+    .options span {
+        font-size: 3em;
     }
 
     .content {
@@ -105,7 +117,6 @@
     }
 
     :global(.text .headline) {
-        font-size: 1.7em;
         color: #666;
     }
 
