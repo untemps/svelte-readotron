@@ -39,7 +39,7 @@
 {#if $$slots.content}
     <slot name="content" {time}/>
 {:else}
-    <span {...$$restProps}>
+    <span data-testid='__readotron-root__' {...$$restProps}>
         {#if !!time && !!template}
             {interpolate(template, {time}, '%')}
         {/if}

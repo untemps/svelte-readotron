@@ -1,75 +1,4 @@
-import { interpolate } from '../interpolate'
-
-const WORDS = [
-	'year',
-	'learn',
-	'key',
-	'cook',
-	'crosswalk',
-	'script',
-	'chief',
-	'plan',
-	'meat',
-	'vague',
-	'demonstrator',
-	'dictionary',
-	'visible',
-	'bomber',
-	'variation',
-	'leader',
-	'channel',
-	'litigation',
-	'royalty',
-	'impulse',
-	'package',
-	'oppose',
-	'privilege',
-	'begin',
-	'operation',
-	'herd',
-	'hemisphere',
-	'incongruous',
-	'horror',
-	'pipe',
-	'start',
-	'vertical',
-	'worry',
-	'reform',
-	'unlike',
-	'exhibition',
-	'disagree',
-	'allow',
-	'patrol',
-	'combine',
-	'impress',
-	'invisible',
-	'cage',
-	'log',
-	'snow',
-	'undertake',
-	'division',
-	'ethics',
-	'damage',
-	'responsible',
-]
-const generateString = (separator = '%') => {
-	let str = ''
-	let int = ''
-	let tok = {}
-	const l = Math.ceil(Math.random() * 50) + 10
-	for (let i = 0; i < l; i++) {
-		const r = Math.random() > 0.7
-		const w = WORDS[Math.floor(Math.random() * WORDS.length)]
-		str += `${i > 0 ? ' ' : ''}${r ? separator : ''}${w}${r ? separator : ''}`
-		if (r) {
-			tok[w] = 'gag'
-			int += `${i > 0 ? ' ' : ''}${r ? tok[w] : ''}`
-		} else {
-			int += `${i > 0 ? ' ' : ''}${r ? separator : ''}${w}${r ? separator : ''}`
-		}
-	}
-	return { str, int, tok }
-}
+import interpolate from '../interpolate'
 
 describe('interpolate', () => {
 	it('Should return null as the string is not specified', () => {
@@ -153,7 +82,7 @@ describe('interpolate', () => {
 
 	it('Should interpolate batch strings', () => {
 		for (var i = 0; i < 100; i++) {
-			const { str, tok, int } = generateString()
+			const { str, tok, int } = generateTokenizedText()
 			expect(interpolate(str, tok)).toBe(int)
 		}
 	})

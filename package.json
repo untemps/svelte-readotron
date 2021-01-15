@@ -36,6 +36,7 @@
 		"@semantic-release/github": "^7.2.0",
 		"@testing-library/dom": "^7.29.0",
 		"@testing-library/jest-dom": "^5.11.6",
+		"@testing-library/svelte": "^3.0.3",
 		"@untemps/event-dispatcher": "^1.1.0",
 		"babel-jest": "^26.6.3",
 		"cross-env": "^7.0.3",
@@ -48,9 +49,18 @@
 		"rollup-plugin-terser": "^7.0.2",
 		"rollup-plugin-visualizer": "^4.2.0",
 		"semantic-release": "^17.3.0",
-		"svelte": "^3.31.1"
+		"svelte": "^3.31.1",
+		"svelte-jester": "^1.3.0"
 	},
 	"jest": {
+		"transform": {
+          "^.+\\.js$": "babel-jest",
+          "^.+\\.svelte$": "svelte-jester"
+		},
+		"moduleFileExtensions": [
+			"js",
+			"svelte"
+		],
 		"coverageDirectory": "./coverage/",
 		"collectCoverage": true,
 		"setupFilesAfterEnv": [
