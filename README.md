@@ -181,6 +181,25 @@ If you use a `<slot>` element, as it will replace the original layout, you have 
 | lang          | string            | 'en'                 | Lang of the content [""ar', 'zh', 'nl', 'en', 'fi', 'fr', 'de', 'he', 'it', 'ko', 'es', 'sv']                                                                     |
 | template      | string            | '%time% min read'    | Display template which contains dynamic token to be replaced by the parsed values                                                                                 |
 
+## Development
+
+The component can be served for development purpose on `http://localhost:10001/` using:
+
+```
+yarn dev
+```
+
+## Contributing
+
+Contributions are warmly welcomed:
+
+- Fork the repository
+- Create a feature branch
+- Develop the feature AND write the tests (or write the tests AND develop the feature)
+- Commit your changes
+  using [Angular Git Commit Guidelines](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines)
+- Submit a Pull Request
+
 ## Roadmap
 
 - Add slot testing and missing unit tests
