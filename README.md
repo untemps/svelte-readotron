@@ -180,3 +180,7 @@ If you use a `<slot>` element, as it will replace the original layout, you have 
 | selector      | string            | (required)           | Selector of the element which contains the content to parse. See [document.querySelector](https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector)   |
 | lang          | string            | 'en'                 | Lang of the content [""ar', 'zh', 'nl', 'en', 'fi', 'fr', 'de', 'he', 'it', 'ko', 'es', 'sv']                                                                     |
 | template      | string            | '%time% min read'    | Display template which contains dynamic token to be replaced by the parsed values                                                                                 |
+
+## Roadmap
+
+- Add slot testing and missing unit tests

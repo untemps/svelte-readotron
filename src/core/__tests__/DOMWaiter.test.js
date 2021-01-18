@@ -7,7 +7,7 @@ describe('DOMWaiter', () => {
 
 	describe('wait', () => {
 		afterEach(() => {
-			document.body.innerHTML = ""
+			document.body.innerHTML = ''
 		})
 
 		it('Waits for an element immediately found', async () => {
@@ -21,7 +21,7 @@ describe('DOMWaiter', () => {
 			const target = generateDOM()
 
 			const instance = new DOMWaiter()
-			instance.wait('#bar').then(el => {
+			instance.wait('#bar').then((el) => {
 				expect(el).toBeDefined()
 				done()
 			})
@@ -35,7 +35,7 @@ describe('DOMWaiter', () => {
 			generateDOM()
 
 			const instance = new DOMWaiter()
-			instance.wait('#gag').catch(err => {
+			instance.wait('#gag').catch((err) => {
 				expect(err.message).toBe(`Error: Element #gag cannot be found`)
 				done()
 			})
@@ -45,7 +45,7 @@ describe('DOMWaiter', () => {
 			const target = generateDOM()
 
 			const instance = new DOMWaiter()
-			instance.wait('#bar', 0).catch(err => {
+			instance.wait('#bar', 0).catch((err) => {
 				expect(err.message).toBe(`Error: Element #bar cannot be found`)
 				done()
 			})

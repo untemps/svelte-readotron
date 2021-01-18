@@ -76,11 +76,11 @@ global.generateTokenizedText = (separator = '%', maxWordCount = 50, minWordCount
 
 global.generateDOM = (text = '') => {
 	const containerElement = document.createElement('div')
-	const contentElement = document.createElement('span');
+	const contentElement = document.createElement('span')
 	contentElement.setAttribute('id', 'foo')
-	containerElement.appendChild(contentElement);
-	const textNode = document.createTextNode(text);
-	contentElement.appendChild(textNode);
-	document.body.appendChild(containerElement);
+	containerElement.appendChild(contentElement)
+	const textNode = document.createTextNode(text)
+	contentElement.appendChild(textNode)
+	document.body.appendChild(containerElement)
 	return containerElement
 }

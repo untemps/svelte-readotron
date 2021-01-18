@@ -12,14 +12,14 @@ const selector = '#foo'
 ReadingTimer.mockImplementation(() => {
 	return {
 		getTime: () => {
-			throw new Error('Test error');
-		}
+			throw new Error('Test error')
+		},
 	}
 })
 
 describe('Readotron', () => {
 	it('renders interpolated template', async () => {
-		const { getByTestId } = render(Readotron, {target: generateDOM(''), props: { selector },})
+		const { getByTestId } = render(Readotron, { target: generateDOM(''), props: { selector } })
 		await waitFor(() => expect(getByTestId('__readotron-root__')).toHaveTextContent('Test error'))
 	})
 })
