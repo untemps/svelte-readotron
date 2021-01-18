@@ -8,7 +8,6 @@ class DOMWaiter {
 
 			if (el) {
 				resolve(el)
-				return
 			}
 
 			const error = new Error(`Error: Element ${selector} cannot be found`)
