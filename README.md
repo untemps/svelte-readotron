@@ -38,7 +38,7 @@ If several elements match the selector, the first one is used.
 
 ### Lang
 
-The component uses the @untemps/ReadingTimer underhand package which returns an estimation based on the lang.  
+The component uses the @untemps/ReadPerMinute underhand package which returns an estimation based on the lang.  
 Reading rates by lang come from ["How many words do we read per minute? A review and meta-analysis of reading rate"](https://osf.io/4nv9f/) by  Marc Brysbaert - Department of Experimental Psychology Ghent University
 
 | Lang      | Rate  |
@@ -124,7 +124,7 @@ Like `template`, tokens are passed back to the component to display dynamic valu
 
 <main>
     <Readotron selector=".text">
-        <span slot="content" let:time>{time} min</span>
+        <span slot="content" let:time let:words>{time} min ({words} words)</span>
     </Readotron>
     <section class="text"/>
 </main>
