@@ -1,3 +1,5 @@
+## [1.1.3](https://github.com/untemps/svelte-readotron/compare/v1.1.2...v1.1.3) (2021-01-19)
+
 ## [1.1.2](https://github.com/untemps/svelte-readotron/compare/v1.1.1...v1.1.2) (2021-01-18)
 
 ## [1.1.1](https://github.com/untemps/svelte-readotron/compare/v1.1.0...v1.1.1) (2021-01-14)
