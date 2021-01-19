@@ -1,3 +1,7 @@
+/**
+ * Rates from "How many words do we read per minute? A review and meta-analysis of reading rate" by Marc Brysbaert - Department of Experimental Psychology Ghent University
+ */
+
 class ReadPerMinute {
 	static rates = Object.freeze({
 		default: 200,
@@ -15,10 +19,22 @@ class ReadPerMinute {
 		sv: 218,
 	})
 
+	/**
+	 * Returns whether the specified lang is indexed in the rate list.
+	 * @param lang  {string}    Lang to test
+	 * @returns {boolean}       True if the lang is indexed, false if not
+	 */
 	static isLangExist(lang) {
 		return !!lang && !!ReadPerMinute.rates[lang]
 	}
 
+	/**
+	 * Parses a string, counts the number the words and divides it by the lang rate to get an estimated reading time.
+	 * The function returns an object containing the estimated time, the number of words and the rate used in the calculation.
+	 * @param text  {string}                                    String to parse.
+	 * @param lang  {string}                                    Lang used to retrieve the reading rate.
+	 * @returns {{rate: number, words: number, time: number}}   Object containing the estimated time, the number of words and the rate used in the calculation.
+	 */
 	parse(text = '', lang = 'en') {
 		if (!text) {
 			text = ''
