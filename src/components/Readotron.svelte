@@ -1,7 +1,7 @@
 <script>
     import {onDestroy, onMount} from 'svelte'
 
-    import ReadingTimer from '../core/ReadingTimer'
+    import ReadPerMinute from '../core/ReadPerMinute'
     import DOMWaiter from '../core/DOMWaiter'
     import interpolate from '../utils/interpolate'
 
@@ -14,7 +14,6 @@
     let error = null
 
     let waiter = null
-    let timer = null
 
     onMount(async () => {
         if (!selector) {
@@ -24,10 +23,8 @@
             waiter = new DOMWaiter()
             const el = await waiter.wait(selector)
 
-            timer = new ReadingTimer()
-            const values = timer.getValues(el.textContent, lang)
-            time = values.time
-            words = values.numWords
+            const rdm = new ReadPerMinute()
+            ;({time, words} = rdm.parse(el.textContent, lang))
         } catch (err) {
             error = err.message
         }
