@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/untemps/svelte-readotron/compare/v1.1.3...v1.2.0) (2021-01-20)
+
+
+### Bug Fixes
+
+* Fix wrong import in tests ([#11](https://github.com/untemps/svelte-readotron/issues/11)) ([a17bb24](https://github.com/untemps/svelte-readotron/commit/a17bb246fef75704f4dc230d88756526b962c703))
+
+
+### Features
+
+* Add words token ([7e37756](https://github.com/untemps/svelte-readotron/commit/7e377562e149957ac700d6f8bc34c07dadf6fbe7))
+
 ## [1.1.3](https://github.com/untemps/svelte-readotron/compare/v1.1.2...v1.1.3) (2021-01-19)
 
 ## [1.1.2](https://github.com/untemps/svelte-readotron/compare/v1.1.1...v1.1.2) (2021-01-18)
