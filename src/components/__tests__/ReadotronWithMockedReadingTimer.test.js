@@ -3,9 +3,9 @@ import { waitFor } from '@testing-library/dom'
 
 import Readotron from '../Readotron.svelte'
 
-import ReadingTimer from '../../core/ReadingTimer'
+import ReadingTimer from '../../core/ReadPerMinute'
 
-jest.mock('../../core/ReadingTimer')
+jest.mock('../../core/ReadPerMinute')
 
 const selector = '#foo'
 
