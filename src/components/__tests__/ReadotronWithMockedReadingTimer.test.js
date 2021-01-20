@@ -11,7 +11,7 @@ const selector = '#foo'
 
 ReadingTimer.mockImplementation(() => {
 	return {
-		getTime: () => {
+		parse: () => {
 			throw new Error('Test error')
 		},
 	}
