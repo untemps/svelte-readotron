@@ -1752,6 +1752,11 @@
   resolved "https://registry.yarnpkg.com/@untemps/event-dispatcher/-/event-dispatcher-1.2.0.tgz#8ab637c84f519bc7c4341de67a023984307370e5"
   integrity sha512-9rpbaClpMoCZXErsC6QHYdPEJ5LTZYkNZp6NdcgJMsrgBMesh1DsEOECE0jk6zSlOvVnIYaDI/kIXK0W38XeXQ==
 
+"@untemps/read-per-minute@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@untemps/read-per-minute/-/read-per-minute-1.0.0.tgz#affc40b54627f1497c4d4659c69c2753f7dafc84"
+  integrity sha512-Xn24ZTimuVo6PdhRznD8TBU0VJtpygQ8wlxmJQHiv2+iciNniSHOlVvxQ8qnk+J5VhKZ2NNrMlSPFC0krnEwww==
+
 JSONStream@^1.0.4, JSONStream@^1.3.4, JSONStream@^1.3.5:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-1.3.5.tgz#3208c1f08d3a4d99261ab64f92302bc15e111ca0"
