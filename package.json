@@ -52,6 +52,9 @@
 		"svelte": "^3.31.1",
 		"svelte-jester": "^1.3.0"
 	},
+	"dependencies": {
+		"@untemps/read-per-minute": "^1.0.0"
+	},
 	"jest": {
 		"transform": {
 			"^.+\\.js$": "babel-jest",

@@ -1,15 +1,14 @@
 import { render } from '@testing-library/svelte'
 import { waitFor } from '@testing-library/dom'
+import { ReadPerMinute } from '@untemps/read-per-minute'
 
 import Readotron from '../Readotron.svelte'
 
-import ReadingTimer from '../../core/ReadPerMinute'
-
-jest.mock('../../core/ReadPerMinute')
+jest.mock('@untemps/read-per-minute')
 
 const selector = '#foo'
 
-ReadingTimer.mockImplementation(() => {
+ReadPerMinute.mockImplementation(() => {
 	return {
 		parse: () => {
 			throw new Error('Test error')

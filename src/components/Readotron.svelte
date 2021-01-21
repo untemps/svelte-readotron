@@ -1,7 +1,7 @@
 <script>
     import {onDestroy, onMount} from 'svelte'
+    import {ReadPerMinute} from '@untemps/read-per-minute'
 
-    import ReadPerMinute from '../core/ReadPerMinute'
     import DOMWaiter from '../core/DOMWaiter'
     import interpolate from '../utils/interpolate'
 
