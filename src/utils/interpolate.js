@@ -10,8 +10,7 @@ export default (str, tok, sep = '%') => {
 			.join('')
 	)
 
-	const regex = new RegExp(`${sep}([^${sep}]+\\b)${sep}`, 'gm')
-	return str.replace(regex, (_, r) => {
-		return (!!tok && tok[r]) || r
-	})
+	return str.replace(new RegExp(`${sep}([^${sep}]+\\b)${sep}`, 'gm'), (_, r) =>
+		!!tok && tok[r] !== null && tok[r] !== undefined ? tok[r] : r
+	)
 }

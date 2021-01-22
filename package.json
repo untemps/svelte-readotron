@@ -127,5 +127,8 @@
 		"build:es": "cross-env NODE_ENV=production BABEL_ENV=es rollup -c",
 		"build:umd": "cross-env NODE_ENV=production BABEL_ENV=umd rollup -c",
 		"prettier": "prettier \"*/**/*.js\" --ignore-path ./.prettierignore --write && git add . && git status"
+	},
+	"dependencies": {
+		"scrollprogress": "^3.0.2"
 	}
 }
