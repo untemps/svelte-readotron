@@ -23,7 +23,9 @@ export default {
 			exclude: 'node_modules/**',
 			babelHelpers: 'bundled',
 		}),
-		resolve(),
+		resolve({
+			dedupe: ['svelte'],
+		}),
 		commonjs(),
 		serve({
 			open: true,
