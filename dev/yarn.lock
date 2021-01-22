@@ -480,9 +480,9 @@ rollup-plugin-serve@^1.1.0:
     opener "1"
 
 rollup-plugin-svelte@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-svelte/-/rollup-plugin-svelte-7.0.0.tgz#8ececb9d1583c24e0edfbc96f8208b70b27af7a1"
-  integrity sha512-cw4yv/5v1NQV3nPbpOJtikgkB+9mfSJaqKUdq7x5fVQJnwLtcdc2JOszBs5pBY+SemTs5pmJbdEMseEavbUtjQ==
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-svelte/-/rollup-plugin-svelte-7.1.0.tgz#d45f2b92b1014be4eb46b55aa033fb9a9c65f04d"
+  integrity sha512-vopCUq3G+25sKjwF5VilIbiY6KCuMNHP1PFvx2Vr3REBNMDllKHFZN2B9jwwC+MqNc3UPKkjXnceLPEjTjXGXg==
   dependencies:
     require-relative "^0.8.7"
     rollup-pluginutils "^2.8.2"
@@ -505,9 +505,9 @@ rollup-pluginutils@^2.8.2:
     estree-walker "^0.6.1"
 
 rollup@^2.3.4:
-  version "2.35.1"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.35.1.tgz#e6bc8d10893556a638066f89e8c97f422d03968c"
-  integrity sha512-q5KxEyWpprAIcainhVy6HfRttD9kutQpHbeqDTWnqAFNJotiojetK6uqmcydNMymBEtC4I8bCYR+J3mTMqeaUA==
+  version "2.38.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.38.0.tgz#57942d5a10826cb12ed1f19c261f774efa502d2d"
+  integrity sha512-ay9zDiNitZK/LNE/EM2+v5CZ7drkB2xyDljvb1fQJCGnq43ZWRkhxN145oV8GmoW1YNi4sA/1Jdkr2LfawJoXw==
   optionalDependencies:
     fsevents "~2.1.2"
 
@@ -561,9 +561,9 @@ supports-color@^7.0.0:
     has-flag "^4.0.0"
 
 svelte@^3.0.0:
-  version "3.31.1"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.31.1.tgz#1a1e2a2fe4eeb72be5c2542735e035c49c45be87"
-  integrity sha512-Q8xVz5U/IFFNjgvVSjdzKJPAX0MFytFwiJo1HAPfGwM7LkHA+BN2q2kL8vKcJwjku7/509MapLov8C9SjogNRg==
+  version "3.31.2"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.31.2.tgz#d2ddf6cacbb95e4cc3796207510b660a25586324"
+  integrity sha512-TxZGrXzX2ggFH3BIKY5fmbeMdJuZrMIMDYPMX6R9255bueuYIuVaBQSLUeY2oD7W4IdeqRZiAVGCjDw2POKBRA==
 
 terser@^5.0.0:
   version "5.5.1"
