@@ -32,14 +32,14 @@ yarn add @untemps/svelte-readotron
 </main>
 ```
 
-`selector` prop is mandatory as it should contain the text content to parse.  
+`selector` prop is mandatory as it points to which element contains the text content to parse.
 You can use all selectors supported by the Web API [querySelector](https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector) function.  
 If several elements match the selector, the first one is used.
 
 ### Lang
 
-The component uses the [@untemps/read-per-minute](https://github.com/untemps/read-per-minute) underhand package which returns an estimation based on the lang.  
-Reading rates by lang come from ["How many words do we read per minute? A review and meta-analysis of reading rate"](https://osf.io/4nv9f/) by  Marc Brysbaert - Department of Experimental Psychology Ghent University
+'lang' is an optional prop that designates the language of the text to parse. The component uses the [@untemps/read-per-minute](https://github.com/untemps/read-per-minute) underhand package which returns an estimation based on the *lang* (language).  
+Reading rates by *lang* come from ["How many words do we read per minute? A review and meta-analysis of reading rate"](https://osf.io/4nv9f/) by  Marc Brysbaert - Department of Experimental Psychology Ghent University
 
 | Lang      | Rate  |
 | --------- | ------|
@@ -57,7 +57,7 @@ Reading rates by lang come from ["How many words do we read per minute? A review
 | es        | 278   |
 | sv        | 218   |
 
-If the lang is not one of the listed ones or is undefined, the default value will be used.
+If a lang is not defined or the provided lang is not listed, the **default** value (200) will be used.
 
 #### Example
 
