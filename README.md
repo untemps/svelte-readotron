@@ -33,12 +33,12 @@ yarn add @untemps/svelte-readotron
 ```
 
 `selector` prop is mandatory as it points to which element contains the text content to parse.
-You can use all selectors supported by the Web API [querySelector](https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector) function.  
-If several elements match the selector, the first one is used.
+You can utilize any selector supported by the Web API [querySelector](https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector) function.  
+If several elements match the selector, it only parses the text of the first element in the array.
 
 ### Lang
 
-'lang' is an optional prop that designates the language of the text to parse. The component uses the [@untemps/read-per-minute](https://github.com/untemps/read-per-minute) underhand package which returns an estimation based on the *lang* (language).  
+'lang' is an optional prop that designates the language of the text to parse. The component implements the [@untemps/read-per-minute](https://github.com/untemps/read-per-minute) underhand package which returns an estimation based on the *lang* (language).  
 Reading rates by *lang* come from ["How many words do we read per minute? A review and meta-analysis of reading rate"](https://osf.io/4nv9f/) by  Marc Brysbaert - Department of Experimental Psychology Ghent University
 
 | Lang      | Rate  |
@@ -57,7 +57,7 @@ Reading rates by *lang* come from ["How many words do we read per minute? A revi
 | es        | 278   |
 | sv        | 218   |
 
-If a lang is not defined or the provided lang is not listed, the **default** value (200) will be used.
+If a lang is not defined or the provided lang is not listed, the **default** value (200) will be applied.
 
 #### Example
 
@@ -135,7 +135,7 @@ Please see the [Svelte API documentation](https://svelte.dev/docs#slot) to know 
 ### Styles
 
 All HTML attributes are automatically passed to the parent element of the component (`span`).  
-That means you can use the `class` attribute to customize the style of the component.
+That means you can query the `class` attribute to customize the style of the component.
 
 #### Example
 
