@@ -3,6 +3,7 @@
 
     let contentP = ''
     let paragraphCount = 15
+    let readProgress = 0
 
     const getContent = async () => {
         try {
@@ -28,7 +29,7 @@
                                alt="Thomas Teack"><span class="name">Thomas Teack</span> Oct 19, 2021 -
         {#await contentP then _}
             <Readotron class="readotron" selector=".text"
-                       template="%time% minutes (%words% words)" withScroll/>
+                       template="%time% minutes (%words% words)" withScroll on:scroll={({detail: {time, words, progress}}) => readProgress = progress}/>
         {/await}
     </div>
     <section class="options">
@@ -47,6 +48,7 @@
             <div class="error">{err.message}</div>
         {/await}
     </section>
+    <div class="progress-bar" style="width: {readProgress * 100}%"></div>
 </main>
 
 <style>
@@ -86,7 +88,6 @@
     :global(.infos .readotron) {
         color: #0075ff;
         font-weight: 600;
-        position: fixed;
     }
 
     .options {
@@ -119,6 +120,14 @@
 
     :global(.text .headline) {
         color: #666;
+    }
+
+    .progress-bar {
+        background-color: #0075ff;
+        height: 20px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
     }
 
     @media (min-width: 640px) {
