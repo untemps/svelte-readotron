@@ -30,6 +30,7 @@ export default {
 		serve({
 			open: true,
 			contentBase: ['dist', 'public'],
+			port: 10002,
 		}),
 		livereload(),
 	],
