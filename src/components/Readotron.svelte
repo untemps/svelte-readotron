@@ -51,8 +51,8 @@
     })
 
     onDestroy(() => {
-        domObserver?.unwait()
-        progressObserver?.destroy()
+        !!domObserver && domObserver.unwait()
+        !!progressObserver && progressObserver.destroy()
     })
 </script>
 
