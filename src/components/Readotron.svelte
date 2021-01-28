@@ -37,7 +37,7 @@
                 const onScroll = (_, progress) => {
                     time = Math.max(Math.round(totalTime - totalTime * progress), 0)
                     words = Math.max(Math.round((totalTime - totalTime * progress) * rate), 0)
-                    dispatch('scroll', {
+                    dispatch('change', {
                         time,
                         words,
                         progress

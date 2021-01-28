@@ -29,7 +29,7 @@
                                alt="Thomas Teack"><span class="name">Thomas Teack</span> Oct 19, 2021 -
         {#await contentP then _}
             <Readotron class="readotron" selector=".text"
-                       template="%time% minutes (%words% words)" withScroll on:scroll={({detail: {time, words, progress}}) => readProgress = progress}/>
+                       template="%time% minutes (%words% words)" withScroll on:change={({detail: {time, words, progress}}) => readProgress = progress}/>
         {/await}
     </div>
     <section class="options">
