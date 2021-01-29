@@ -139,9 +139,9 @@ Here are the properties available inside the `event.detail` sent with the event:
 
 | Props           | Type              | Description                                                                                                                                                       |
 | --------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `time`          | number            | Remaining time value                                                                                                                                              |
-| `words`         | number            | Number of remaining words values                                                                                                                                  |
-| `progress`      | number            | Ration of progression between 0 and 1                                                                                                                             |
+| `time`          | number            | Estimated remaining reading time (in minutes)                                                                                                                     |
+| `words`         | number            | Number of remaining words                                                                                                                                         |
+| `progress`      | number            | Ratio of progression (between 0 and 1)                                                                                                                            |
 
 #### Example
 
@@ -284,6 +284,15 @@ If you use a `<slot>` element, as it will replace the original layout, you have 
 | `lang`          | string            | 'en'                 | Lang of the content [""ar', 'zh', 'nl', 'en', 'fi', 'fr', 'de', 'he', 'it', 'ko', 'es', 'sv']                                                                     |
 | `template`      | string            | '%time% min read'    | Display template which contains dynamic token to be replaced by the parsed values                                                                                 |
 | `withScroll`    | boolean           | false                | Enable updates on scroll. If true, `time` and `words` values will reflect the document scroll position                                                            |
+
+### Events
+
+| Props           | Arguments         | Type                 | Description                                                                                                                                                       |
+| --------------- | ----------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `change`        |                   |                      | **Dispatches whenever time and words have changed**                                                                                                               |
+|                 | `time`            | number               | Estimated remaining reading time (in minutes) Estimated remaining reading time (in minutes)                                                                       |
+|                 | `words`           | number               | Number of remaining words                                                                                                                                         |
+|                 | `progress`        | number               | Ratio of progression (between 0 and 1)                                                                                                                            |
 
 ## Development
 
