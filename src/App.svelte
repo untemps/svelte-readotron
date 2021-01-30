@@ -1,5 +1,5 @@
 <script>
-    import Readotron from '../../src'
+    import Readotron from '@untemps/svelte-readotron'
 
     let contentP = ''
     let paragraphCount = 15

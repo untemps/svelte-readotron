@@ -1,3 +1,7 @@
-import Readotron from './components/Readotron.svelte'
+import App from './App.svelte'
 
-export default Readotron
+const app = new App({
+	target: document.body,
+})
+
+export default app

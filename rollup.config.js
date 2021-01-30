@@ -1,37 +1,37 @@
 import svelte from 'rollup-plugin-svelte'
+import css from 'rollup-plugin-css-only'
+import replace from '@rollup/plugin-replace'
 import babel from '@rollup/plugin-babel'
-import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
-import { terser } from 'rollup-plugin-terser'
-import visualizer from 'rollup-plugin-visualizer'
-
-const production = process.env.NODE_ENV === 'production'
-const target = process.env.BABEL_ENV
+import commonjs from '@rollup/plugin-commonjs'
+import serve from 'rollup-plugin-serve'
+import livereload from 'rollup-plugin-livereload'
 
 export default {
 	input: 'src/index.js',
 	output: {
-		name: 'svelte-readotron',
-		file: {
-			cjs: 'dist/index.js',
-			es: 'dist/index.es.js',
-			umd: 'dist/index.umd.js',
-		}[target],
-		format: target,
-		sourcemap: 'inline',
+		format: 'es',
+		file: 'dist/index.js',
 	},
-	external: id => !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/'),
 	plugins: [
 		svelte(),
+		css({ output: 'index.css' }),
+		replace({
+			'process.env.NODE_ENV': JSON.stringify('production'),
+		}),
 		babel({
 			exclude: 'node_modules/**',
 			babelHelpers: 'bundled',
 		}),
-		resolve(),
-		commonjs(),
-		production && terser(),
-		visualizer({
-			sourcemap: true,
+		resolve({
+			dedupe: ['svelte'],
 		}),
+		commonjs(),
+		serve({
+			open: true,
+			contentBase: ['dist', 'public'],
+			port: 10002,
+		}),
+		livereload(),
 	],
 }
