@@ -67,6 +67,8 @@
         font-size: 6em;
         font-weight: 600;
         font-style: italic;
+        line-height: .95;
+        margin: 0 0 0.3em 0;
     }
 
     .infos {
