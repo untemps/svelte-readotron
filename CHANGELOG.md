@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/untemps/svelte-readotron/compare/v1.2.1...v1.3.0) (2021-01-30)
+
+
+### Bug Fixes
+
+* Remove optional chaining syntax ([4fc302f](https://github.com/untemps/svelte-readotron/commit/4fc302fad101d279c3e4adeed7f87258ce71507d))
+
+
+### Features
+
+* Add support for scroll progression ([8b3b8ca](https://github.com/untemps/svelte-readotron/commit/8b3b8ca7c902eaf3493ce789d83ebba8d30bbf50))
+* Change event name from 'scroll' to 'change' ([1a24456](https://github.com/untemps/svelte-readotron/commit/1a244560dfc3548286eb65c2117c68e7460aa9e3))
+* Dispatch scroll event ([0e69e3e](https://github.com/untemps/svelte-readotron/commit/0e69e3ec69716988393cefe36666f9fe584dbb03))
+
 ## [1.2.1](https://github.com/untemps/svelte-readotron/compare/v1.2.0...v1.2.1) (2021-01-22)
 
 # [1.2.0](https://github.com/untemps/svelte-readotron/compare/v1.1.3...v1.2.0) (2021-01-20)
