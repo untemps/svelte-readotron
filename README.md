@@ -108,7 +108,10 @@ A template is a string with one or more tokens delimited with `%`
 You are able to track and update component values by opting in the `withScroll` flag.
 This will change the `time` (remaining time to read) and `words` (number of remaining words) as the user scroll the document.
 
-**Note: There is no support for `element` scrolling so far, `document` only.**
+---
+*Note: There is no support for `element` scrolling so far, `document` only.*
+
+---
 
 The component uses the [scrollProgress](https://github.com/jeremenichelli/scrollProgress) underhand package to track document scrolling.
 
@@ -129,7 +132,12 @@ The component uses the [scrollProgress](https://github.com/jeremenichelli/scroll
 
 ### Change Event
 
-If you need to be notified when values change, you may attach a listener to the `change` event emitted by the component.
+If you need to be notified whenever values change, you may attach a listener to the `change` event emitted by the component.
+
+---
+*Note: The change event will be dispatched only if the `withScroll` prop is set to `true` since this is the only use case that triggers the change event so far*
+
+---
 
 The handler will be triggered for the first time during the mounting phase with the initial values. 
 
