@@ -11,6 +11,11 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/untemps/svelte-readotron/deploy?style=for-the-badge)](https://github.com/untemps/svelte-readotron/actions)
 [![Codecov](https://img.shields.io/codecov/c/github/untemps/svelte-readotron?style=for-the-badge)](https://codecov.io/gh/untemps/svelte-readotron)
 
+## Demo
+
+:red_circle:&nbsp;&nbsp;<big><a href="https://untemps.github.io/svelte-readotron" target="_blank" rel="noopener">LIVE
+DEMO</a></big>&nbsp;:red_circle:
+
 ## Installation
 
 ```bash
