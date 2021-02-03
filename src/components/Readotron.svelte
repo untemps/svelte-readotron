@@ -15,6 +15,7 @@
     let time = 0
     let words = 0
     let rate = 0
+    let isParsed = false
     let error = null
 
     let domObserver = null
@@ -45,6 +46,8 @@
                 }
                 progressObserver = new ScrollProgress(onScroll)
             }
+
+            isParsed = true
         } catch (err) {
             error = err.message
         }
@@ -56,15 +59,16 @@
     })
 </script>
 
-{#if $$slots.content}
+{#if $$slots.error && !!error}
+    <slot name="error" {error}/>
+{:else if $$slots.content && !error && isParsed}
     <slot name="content" {time} {words}/>
 {:else}
     <span data-testid='__readotron-root__' {...$$restProps}>
-        {#if !!template && !error}
-            {interpolate(template, {time, words}, '%')}
-        {/if}
         {#if !!error}
             {error}
+        {:else if isParsed}
+            {interpolate(template, {time, words}, '%')}
         {/if}
     </span>
 {/if}

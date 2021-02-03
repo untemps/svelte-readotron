@@ -28,8 +28,10 @@
     <div class="infos">By <img class="avatar" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
                                alt="Thomas Teack"><span class="name">Thomas Teack</span> Oct 19, 2021 -
         {#await contentP then _}
-            <Readotron class="readotron" selector=".text"
-                       template="%time% minutes (%words% words)" withScroll on:change={({detail: {time, words, progress}}) => readProgress = progress}/>
+            <Readotron selector=".text" withScroll on:change={({detail: {time, words, progress}}) => readProgress = progress}>
+                <span class="readotron" slot="content" let:time>{time} min</span>
+                <span class="error" slot="error" let:error>Oops</span>
+            </Readotron>
         {/await}
     </div>
     <section class="options">
@@ -67,6 +69,10 @@
         font-size: 6em;
         font-weight: 600;
         font-style: italic;
+    }
+
+    .error {
+        color: red;
     }
 
     .infos {
