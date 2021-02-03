@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/untemps/svelte-readotron/compare/v1.3.0...v1.4.0) (2021-02-03)
+
+
+### Features
+
+* Add error slot ([50fc885](https://github.com/untemps/svelte-readotron/commit/50fc88593aa56239ffec5b96da4f1220ff2b9263))
+
 # [1.3.0](https://github.com/untemps/svelte-readotron/compare/v1.2.1...v1.3.0) (2021-01-30)
 
 
