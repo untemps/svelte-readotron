@@ -281,13 +281,68 @@ If you use a `<slot>` element, as it will replace the original layout, you have 
 
 <main>
     <Readotron selector=".text">
-        <span class="readotron" slot="content" let:time={time}>{time} min</span>
+        <span class="readotron" slot="content" let:time>{time} min</span>
     </Readotron>
     <section class="text">
         ...
     </section>
 </main>
 ```
+
+### Error
+
+If an error occurs during the parsing phase, the component catches and exposes it through an `error` variable which is displayed as is it by default. That means the error message uses the exact same styles as time value.  
+
+<p align="center">
+    <img src="assets/error-default.png" alt="Default error display" height="79"/>
+</p>
+
+You may want to customize this error message, so the component provides a `slot`, named `error`, which replaces the default display if passed in.
+
+<p align="center">
+    <img src="assets/error-slot.png" alt="Slot error display" height="79"/>
+</p>
+
+#### Example
+
+```html
+<script>
+    import Readotron from '@untemps/svelte-readotron'
+</script>
+
+<main>
+    <Readotron selector=".text">
+      <span class="readotron" slot="content" let:time>{time} min</span>
+      <span class="error" slot="error" let:error>Oops!</span>
+    </Readotron>
+    <section class="text">
+        ...
+    </section>
+</main>
+
+<style>
+  .readotron {
+    color: #0075ff;
+    font-weight: 600;
+  }
+
+  .error {
+    color: #ff0000;
+    font-weight: 600;
+  }
+</style>
+```
+
+#### Constraints:
+The `<slot>` element has to be set with the prop `slot="error"`
+
+#### Avalaible tokens
+
+Error message is passed back to the component for display purpose if needed (see [Svelte API documentation](https://svelte.dev/docs#slot_let)):
+
+| Token         | Description                                                                                                      |
+| ------------- | --------------------------------------------------------------------------------------------------- |
+| `error`       | Original error message                                                                              |
 
 ### API
 
