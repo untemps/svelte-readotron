@@ -1,13 +1,14 @@
 <script>
     import Readotron from '../../src'
 
-    let contentP = ''
-    let paragraphCount = 15
+    let contentPromise = null
+    let areOptionsOpen = true
+    let optionParagraphs = 15
     let readProgress = 0
 
     const getContent = async () => {
         try {
-            const res = await fetch(`https://baconipsum.com/api/?type=all-meat&paras=${paragraphCount}&format=html`)
+            const res = await fetch(`https://baconipsum.com/api/?type=all-meat&paras=${optionParagraphs}&format=html`)
             const text = await res.text()
             return text.replace(/<p>/, '<p class="headline">')
         } catch (err) {
@@ -15,12 +16,20 @@
         }
     }
 
-    const onParagraphCountChange = (event) => {
-        paragraphCount = event.target.value
-        contentP = getContent()
+    const onReadotronChange = ({detail: {time, words, progress}}) => {
+        readProgress = progress
     }
 
-    contentP = getContent()
+    const onOptionsButtonClick = () => {
+        areOptionsOpen = !areOptionsOpen
+    }
+
+    const onParagraphsChange = (event) => {
+        optionParagraphs = event.target.value
+        contentPromise = getContent()
+    }
+
+    contentPromise = getContent()
 </script>
 
 <article class="root">
@@ -30,23 +39,26 @@
         <img class="avatar" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" alt="Thomas Teack">
         <span class="name">Thomas Teack</span>
         <span>Oct 19, 2021</span>
-        {#await contentP then _}
+        {#await contentPromise then _}
             <Readotron selector=".text" withScroll
-                       on:change={({detail: {time, words, progress}}) => readProgress = progress}>
+                       on:change={onReadotronChange}>
                 <span class="readotron" slot="content" let:time>{time} min read</span>
                 <span class="error" slot="error" let:error>Oops</span>
             </Readotron>
         {/await}
     </div>
     <aside class="options">
-        <h3>Settings</h3>
-        <label for="paragraphCount">Paragraph Count</label>
-        <input id="paragraphCount" type="range" min="5" max="50" step="5" value={paragraphCount}
-               on:change={onParagraphCountChange}>
-        <span>{paragraphCount}</span>
+        <button class="options-btn" aria-label="Ouvrir" on:click={onOptionsButtonClick}><i class="gg-options"></i>
+        </button>
+        {#if areOptionsOpen}
+            <h3>Settings</h3>
+            <label for="paragraphs">Paragraphs: <strong>{optionParagraphs}</strong></label>
+            <input id="paragraphs" type="range" min="5" max="50" step="5" value={optionParagraphs}
+                   on:change={onParagraphsChange}>
+        {/if}
     </aside>
     <section class="content">
-        {#await contentP}
+        {#await contentPromise}
             <div class="loading">Loading...</div>
         {:then content}
             <div class="text">{@html content}</div>
@@ -88,7 +100,19 @@
         flex-direction: column;
         align-items: center;
         background-color: aliceblue;
-        padding: 1.2em;
+        padding: .4em;
+        box-shadow: -5px 5px 10px -5px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: -5px 5px 10px -5px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: -5px 5px 10px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    :global(.options .options-btn) {
+        background: none;
+        border: none;
+        color: black;
+        padding: 2em;
+        font-size: .4em;
+        cursor: pointer;
     }
 
     :global(.infos) {
