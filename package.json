@@ -31,7 +31,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn prettier && yarn build"
+      "pre-commit": "yarn prettier"
     }
   },
   "release": {
