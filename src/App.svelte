@@ -72,7 +72,7 @@
     }
     @media (min-width: 640px) {
         :global(.root) {
-            max-width: 70%;
+            max-width: 50%;
             padding: 6em 1em 1em 1em;
         }
     }
