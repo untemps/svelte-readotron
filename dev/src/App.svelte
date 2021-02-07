@@ -42,7 +42,7 @@
         {#await contentPromise then _}
             <Readotron selector=".text" withScroll
                        on:change={onReadotronChange}>
-                <span class="readotron" slot="content" let:time>{time} min read</span>
+                <span class="readotron" slot="content" let:time let:words>{time} min read ({words} words)</span>
                 <span class="error" slot="error" let:error>Oops</span>
             </Readotron>
         {/await}
@@ -75,13 +75,12 @@
         padding: 1em;
         margin: 0 auto;
     }
-
     @media (min-width: 640px) {
         :global(.root) {
-            max-width: 70%;
+            max-width: 50%;
+            padding: 6em 1em 1em 1em;
         }
     }
-
     :global(.title) {
         font-family: Vollkorn, serif;
         color: #a3c428;
@@ -91,7 +90,6 @@
         line-height: .95;
         margin: 0 0 0.3em 0;
     }
-
     :global(.options) {
         position: fixed;
         right: 20px;
@@ -105,7 +103,6 @@
         -webkit-box-shadow: -5px 5px 10px -5px rgba(0, 0, 0, 0.5);
         -moz-box-shadow: -5px 5px 10px -5px rgba(0, 0, 0, 0.5);
     }
-
     :global(.options .options-btn) {
         background: none;
         border: none;
@@ -114,19 +111,15 @@
         font-size: .4em;
         cursor: pointer;
     }
-
     :global(.infos) {
         color: #aaa;
     }
-
     :global(.infos *) {
         margin-right: .5em;
     }
-
     :global(.infos .avatar) {
         display: none;
     }
-
     @media (min-width: 640px) {
         :global(.infos .avatar) {
             display: inline;
@@ -135,25 +128,23 @@
             vertical-align: middle;
         }
     }
-
     :global(.infos .name) {
         color: #a3c428;
         font-weight: 600;
     }
-
     :global(.infos .readotron) {
         color: #0075ff;
         font-weight: 600;
     }
-
     :global(.text) {
         text-align: left;
     }
-
     :global(.text .headline) {
         color: #666;
+        border-bottom: 2px dotted #ddd;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
     }
-
     :global(.progress-bar) {
         background-color: #0075ff;
         height: 10px;
@@ -161,5 +152,4 @@
         left: 0;
         bottom: 0;
     }
-
 </style>
