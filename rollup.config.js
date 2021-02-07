@@ -35,7 +35,6 @@ export default {
         !production &&
         serve({
             open: true,
-            contentBase: ['public'],
             port: 10003,
         }),
         !production &&
