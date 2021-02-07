@@ -1,7 +1,6 @@
 # Build
-.cache/
-dist/
-stats.html
+index.css
+index.js
 
 # Dependencies
 node_modules/
