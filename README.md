@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="/Users/vincentperso/Documents/Workspace/svelte-readotron/assets/svelte-readotron.png" alt="svelte-readotron" height="200"/>
+    <img src="assets/svelte-readotron.png" alt="svelte-readotron" height="200"/>
 </p>
 <p align="center">
     Svelte component to display an estimated reading time
@@ -294,13 +294,13 @@ If you use a `<slot>` element, as it will replace the original layout, you have 
 If an error occurs during the parsing phase, the component catches and exposes it through an `error` variable which is displayed as is it by default. That means the error message uses the exact same styles as time value.  
 
 <p align="center">
-    <img src="/Users/vincentperso/Documents/Workspace/svelte-readotron/assets/error-default.png" alt="Default error display" width="100%"/>
+    <img src="assets/error-default.png" alt="Default error display" width="100%"/>
 </p>
 
 You may want to customize this error message, so the component provides a `slot`, named `error`, which replaces the default display if passed in.
 
 <p align="center">
-    <img src="/Users/vincentperso/Documents/Workspace/svelte-readotron/assets/error-slot.png" alt="Slot error display" width="100%"/>
+    <img src="assets/error-slot.png" alt="Slot error display" width="100%"/>
 </p>
 
 #### Example
