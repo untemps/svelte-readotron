@@ -4,12 +4,15 @@
 	"author": "Vincent Le Badezet <v.lebadezet@untemps.net>",
 	"repository": "git@github.com:untemps/svelte-readotron.git",
 	"license": "MIT",
-	"description": "A Svelte component to display an estimated reading time",
+	"description": "Svelte component to display an estimated reading time",
 	"keywords": [
 		"read-o-meter",
 		"speed-reading-time",
 		"reading-time",
+		"reading-time-estimator",
+		"reading-rates",
 		"svelte",
+		"svelte-component",
 		"component",
 		"javascript"
 	],
