@@ -40,7 +40,7 @@
         <span class="name">Thomas Teack</span>
         <span>Oct 19, 2021</span>
         {#await contentPromise then _}
-            <Readotron selector=".text" withScroll
+            <Readotron selector=".text2" withScroll
                        on:change={onReadotronChange}>
                 <span class="readotron" slot="content" let:time let:words>{time} min read ({words} words)</span>
                 <span class="error" slot="error" let:error>Oops</span>
@@ -144,6 +144,10 @@
         border-bottom: 2px dotted #ddd;
         padding-bottom: 30px;
         margin-bottom: 30px;
+    }
+    :global(.error) {
+        color: red;
+        font-weight: 600;
     }
     :global(.progress-bar) {
         background-color: #0075ff;
