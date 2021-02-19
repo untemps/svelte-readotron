@@ -1,10 +1,10 @@
 <script>
     import {createEventDispatcher, onDestroy, onMount} from 'svelte'
     import {ReadPerMinute} from '@untemps/read-per-minute'
+    import {DOMObserver} from '@untemps/dom-observer'
     import ScrollProgress from 'scrollprogress'
 
-    import DOMWaiter from '../core/DOMWaiter'
-    import interpolate from '../utils/interpolate'
+    import interpolate from '../utils/interpolate';
 
     export let selector
     export let lang = 'en'
@@ -28,7 +28,7 @@
             return
         }
         try {
-            domObserver = new DOMWaiter()
+            domObserver = new DOMObserver()
             const el = await domObserver.wait(selector)
 
             const rdm = new ReadPerMinute()
