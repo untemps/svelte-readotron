@@ -43,6 +43,9 @@ yarn add @untemps/svelte-readotron
 You can utilize any selector supported by the Web API [querySelector](https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector) function.  
 If several elements match the selector, it only parses the text of the first element in the array.
 
+The component will wait for the element to be present in the DOM before parsing its content. If the element is not found after 1000ms, an error is raised and displayed.  
+This is achieved with the [@untemps/dom-observer](https://github.com/untemps/dom-observer) package.
+
 ### Lang
 
 'lang' is an optional prop that designates the language of the text to parse. The component implements the [@untemps/read-per-minute](https://github.com/untemps/read-per-minute) underhand package which returns an estimation based on the *lang* (language).  
