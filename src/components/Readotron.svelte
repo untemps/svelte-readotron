@@ -4,7 +4,7 @@
     import {DOMObserver} from '@untemps/dom-observer'
     import ScrollProgress from 'scrollprogress'
 
-    import interpolate from '../utils/interpolate';
+    import interpolate from '../utils/interpolate'
 
     export let selector
     export let lang = 'en'
