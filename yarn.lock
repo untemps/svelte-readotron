@@ -1747,6 +1747,11 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@untemps/dom-observer@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@untemps/dom-observer/-/dom-observer-1.0.1.tgz#01cf75424fa3505a2a8b1557ab15331b860ae67b"
+  integrity sha512-/ZnhrTGm8IQQTNkg0aFNG9ATnT92pvOhgUT61YkPpH+zt/dmD5mHC9+TuvyF5V4r0bxWpidGpF61jVqx5AZZag==
+
 "@untemps/read-per-minute@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@untemps/read-per-minute/-/read-per-minute-1.0.0.tgz#affc40b54627f1497c4d4659c69c2753f7dafc84"
