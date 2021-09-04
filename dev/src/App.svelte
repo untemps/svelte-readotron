@@ -40,7 +40,7 @@
         <span class="name">Thomas Teack</span>
         <span>Oct 19, 2021</span>
         {#await contentPromise then _}
-            <Readotron selector=".text2" withScroll
+            <Readotron selector=".text" withScroll
                        on:change={onReadotronChange}>
                 <span class="readotron" slot="content" let:time let:words>{time} min read ({words} words)</span>
                 <span class="error" slot="error" let:error>Oops</span>
