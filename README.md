@@ -13,8 +13,12 @@
 
 ## Demo
 
-:red_circle:&nbsp;&nbsp;<big><a href="https://untemps.github.io/svelte-readotron" target="_blank" rel="noopener">LIVE
-DEMO</a></big>&nbsp;:red_circle:
+<p align="center">
+    :red_circle:&nbsp;&nbsp;<big><a href="https://untemps.github.io/svelte-readotron" target="_blank" rel="noopener">LIVE
+    DEMO</a></big>&nbsp;:red_circle:
+    <br/><br/>
+    <img src="assets/example.png" alt="Example" style="max-width: 100%"/>
+</p>
 
 ## Installation
 
