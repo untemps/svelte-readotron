@@ -5,7 +5,7 @@
 
 	import interpolate from '../utils/interpolate'
 
-    import ScrollProgress from '../scroll/scrollprogress'
+    import ScrollProgress from '../scroll/Scrollprogress'
 
     export let selector
     export let lang = 'en'
