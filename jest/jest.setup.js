@@ -74,13 +74,6 @@ global.generateTokenizedText = (separator = '%', maxWordCount = 50, minWordCount
 	return { str, int, tok }
 }
 
-global.generateDOM = (text = '') => {
-	const containerElement = document.createElement('div')
-	const contentElement = document.createElement('span')
-	contentElement.setAttribute('id', 'foo')
-	containerElement.appendChild(contentElement)
-	const textNode = document.createTextNode(text)
-	contentElement.appendChild(textNode)
-	document.body.appendChild(containerElement)
-	return containerElement
+global._sleep = (ms = 100) => {
+	return new Promise((resolve) => setTimeout(resolve, ms))
 }
