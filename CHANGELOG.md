@@ -1,3 +1,11 @@
+## [1.4.1](https://github.com/untemps/svelte-readotron/compare/v1.4.0...v1.4.1) (2022-01-13)
+
+
+### Bug Fixes
+
+* Fix typo in import ([#38](https://github.com/untemps/svelte-readotron/issues/38)) ([937593c](https://github.com/untemps/svelte-readotron/commit/937593c1a51d03cd900b25593c964ee2e5b0ae75))
+* Remove duplicate file and fix wrong import ([#37](https://github.com/untemps/svelte-readotron/issues/37)) ([fb6f00b](https://github.com/untemps/svelte-readotron/commit/fb6f00b4489e7381e1a5f9a33f04f3756407a343))
+
 # [1.4.0](https://github.com/untemps/svelte-readotron/compare/v1.3.0...v1.4.0) (2021-02-03)
 
 
