@@ -22,7 +22,8 @@
 	},
 	"main": "dist/index.js",
 	"module": "dist/index.es.js",
-	"svelte": "src/index.js",
+	"svelte": "dist/index.js",
+	"files": ["dist"],
 	"devDependencies": {
 		"@babel/cli": "^7.16.8",
 		"@babel/core": "^7.16.7",
@@ -64,15 +65,10 @@
 			"^.+\\.js$": "babel-jest",
 			"^.+\\.svelte$": "svelte-jester"
 		},
-		"moduleFileExtensions": [
-			"js",
-			"svelte"
-		],
+		"moduleFileExtensions": ["js", "svelte"],
 		"coverageDirectory": "./coverage/",
 		"collectCoverage": true,
-		"setupFilesAfterEnv": [
-			"<rootDir>/jest/jest.setup.js"
-		],
+		"setupFilesAfterEnv": ["<rootDir>/jest/jest.setup.js"],
 		"restoreMocks": true
 	},
 	"husky": {
@@ -82,11 +78,20 @@
 		}
 	},
 	"release": {
-		"branches": [
-			"main"
-		],
+		"branches": ["main"],
 		"plugins": [
-			"@semantic-release/commit-analyzer",
+			[
+				"@semantic-release/commit-analyzer",
+				{
+					"releaseRules": [
+						{
+							"type": "chore",
+							"scope": "force",
+							"release": "patch"
+						}
+					]
+				}
+			],
 			"@semantic-release/release-notes-generator",
 			"@semantic-release/changelog",
 			"@semantic-release/npm",
