@@ -2,13 +2,12 @@
     import Readotron from '../../src'
 
     let contentPromise = null
-    let areOptionsOpen = true
-    let optionParagraphs = 15
+    let numParagraphs = 15
     let readProgress = 0
 
     const getContent = async () => {
         try {
-            const res = await fetch(`https://baconipsum.com/api/?type=all-meat&paras=${optionParagraphs}&format=html`)
+            const res = await fetch(`https://baconipsum.com/api/?type=all-meat&paras=${numParagraphs}&format=html`)
             const text = await res.text()
             return text.replace(/<p>/, '<p class="headline">')
         } catch (err) {
@@ -18,15 +17,6 @@
 
     const onReadotronChange = ({detail: {time, words, progress}}) => {
         readProgress = progress
-    }
-
-    const onOptionsButtonClick = () => {
-        areOptionsOpen = !areOptionsOpen
-    }
-
-    const onParagraphsChange = (event) => {
-        optionParagraphs = event.target.value
-        contentPromise = getContent()
     }
 
     contentPromise = getContent()
@@ -47,16 +37,6 @@
             </Readotron>
         {/await}
     </div>
-    <aside class="options">
-        <button class="options-btn" aria-label="Ouvrir" on:click={onOptionsButtonClick}><i class="gg-options"></i>
-        </button>
-        {#if areOptionsOpen}
-            <h3>Settings</h3>
-            <label for="paragraphs">Paragraphs: <strong>{optionParagraphs}</strong></label>
-            <input id="paragraphs" type="range" min="5" max="50" step="5" value={optionParagraphs}
-                   on:change={onParagraphsChange}>
-        {/if}
-    </aside>
     <section class="content">
         {#await contentPromise}
             <div class="loading">Loading...</div>
@@ -71,45 +51,31 @@
 
 <style>
     :global(.root) {
+        font-size: 1em;
         font-weight: 400;
         padding: 1em;
         margin: 0 auto;
     }
     @media (min-width: 640px) {
         :global(.root) {
-            max-width: 50%;
-            padding: 6em 1em 1em 1em;
+            font-size: 2em;
+			max-width: 70%;
+            padding: 3em 1em 1em 1em;
         }
     }
     :global(.title) {
         font-family: Vollkorn, serif;
         color: #a3c428;
-        font-size: 6em;
+        font-size: 3em;
         font-weight: 600;
         font-style: italic;
         line-height: .95;
-        margin: 0 0 0.3em 0;
+        margin: 0 0 .6em 0;
     }
-    :global(.options) {
-        position: fixed;
-        right: 20px;
-        top: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: aliceblue;
-        padding: .4em;
-        box-shadow: -5px 5px 10px -5px rgba(0, 0, 0, 0.5);
-        -webkit-box-shadow: -5px 5px 10px -5px rgba(0, 0, 0, 0.5);
-        -moz-box-shadow: -5px 5px 10px -5px rgba(0, 0, 0, 0.5);
-    }
-    :global(.options .options-btn) {
-        background: none;
-        border: none;
-        color: black;
-        padding: 2em;
-        font-size: .4em;
-        cursor: pointer;
+    @media (min-width: 800px) {
+        :global(.title) {
+            font-size: 6em;
+        }
     }
     :global(.infos) {
         color: #aaa;
@@ -142,8 +108,14 @@
     :global(.text .headline) {
         color: #666;
         border-bottom: 2px dotted #ddd;
-        padding-bottom: 30px;
-        margin-bottom: 30px;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    @media (min-width: 800px) {
+        :global(.text .headline) {
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
     }
     :global(.error) {
         color: red;

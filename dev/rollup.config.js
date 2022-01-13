@@ -18,10 +18,15 @@ export default {
 		css({ output: 'index.css' }),
 		replace({
 			'process.env.NODE_ENV': JSON.stringify('production'),
+			preventAssignment: true
 		}),
 		babel({
 			exclude: 'node_modules/**',
 			babelHelpers: 'bundled',
+			plugins: [
+				'@babel/plugin-proposal-class-properties',
+				'@babel/plugin-proposal-private-methods',
+			],
 		}),
 		resolve({
 			dedupe: ['svelte'],

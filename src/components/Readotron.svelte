@@ -2,9 +2,10 @@
     import {createEventDispatcher, onDestroy, onMount} from 'svelte'
     import {ReadPerMinute} from '@untemps/read-per-minute'
     import {DOMObserver} from '@untemps/dom-observer'
-    import ScrollProgress from 'scrollprogress'
 
-    import interpolate from '../utils/interpolate'
+	import interpolate from '../utils/interpolate'
+
+    import ScrollProgress from '../scroll/scrollprogress'
 
     export let selector
     export let lang = 'en'
@@ -17,6 +18,7 @@
     let rate = 0
     let isParsed = false
     let error = null
+    let empty = 'No content to parse'
 
     let domObserver = null
     let progressObserver = null
@@ -29,22 +31,21 @@
         }
         try {
             domObserver = new DOMObserver()
-            const el = await domObserver.wait(selector)
+            const { node: el } = await domObserver.wait(selector, null, {timeout: 100})
 
             const rdm = new ReadPerMinute()
             ;({time, time: totalTime, words, rate} = rdm.parse(el.textContent, lang))
 
             if (withScroll) {
-                const onScroll = (_, progress) => {
-                    time = Math.max(Math.round(totalTime - totalTime * progress), 0)
-                    words = Math.max(Math.round((totalTime - totalTime * progress) * rate), 0)
-                    dispatch('change', {
-                        time,
-                        words,
-                        progress
-                    })
-                }
-                progressObserver = new ScrollProgress(onScroll)
+                progressObserver = new ScrollProgress((_, progress) => {
+	                time = Math.max(Math.round(totalTime - totalTime * progress), 0)
+	                words = Math.max(Math.round((totalTime - totalTime * progress) * rate), 0)
+	                dispatch('change', {
+		                time,
+		                words,
+		                progress
+	                })
+                })
             }
 
             isParsed = true
@@ -54,8 +55,8 @@
     })
 
     onDestroy(() => {
-        !!domObserver && domObserver.unwait()
-        !!progressObserver && progressObserver.destroy()
+        domObserver?.clear()
+        progressObserver?.destroy()
     })
 </script>
 
@@ -69,6 +70,8 @@
             {error}
         {:else if isParsed}
             {interpolate(template, {time, words}, '%')}
+		{:else}
+			{empty}
         {/if}
     </span>
 {/if}
