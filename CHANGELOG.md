@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/untemps/svelte-readotron/compare/v1.4.2...v1.4.3) (2022-01-14)
+
+
+### Bug Fixes
+
+* Fix timeout value ([#40](https://github.com/untemps/svelte-readotron/issues/40)) ([0a6ee30](https://github.com/untemps/svelte-readotron/commit/0a6ee30b80fdc8e8a10df0febbc9cd876a585eeb))
+
 ## [1.4.2](https://github.com/untemps/svelte-readotron/compare/v1.4.1...v1.4.2) (2022-01-13)
 
 ## [1.4.1](https://github.com/untemps/svelte-readotron/compare/v1.4.0...v1.4.1) (2022-01-13)
