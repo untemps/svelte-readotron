@@ -31,7 +31,7 @@
         }
         try {
             domObserver = new DOMObserver()
-            const { node: el } = await domObserver.wait(selector, null, {timeout: 100})
+            const { node: el } = await domObserver.wait(selector, null, {timeout: 1000})
 
             const rdm = new ReadPerMinute()
             ;({time, time: totalTime, words, rate} = rdm.parse(el.textContent, lang))
