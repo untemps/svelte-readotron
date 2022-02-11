@@ -22,7 +22,7 @@
 	},
 	"main": "dist/index.js",
 	"module": "dist/index.es.js",
-	"svelte": "dist/index.js",
+	"svelte": "dist/index.es.js",
 	"files": [
 		"dist"
 	],
