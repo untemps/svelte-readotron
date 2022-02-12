@@ -41,6 +41,18 @@ describe('Readotron', () => {
 		await waitFor(() => expect(getByTestId('__readotron-root__')).toHaveTextContent('1 minute'))
 	})
 
+	it('renders parsed values in custom function template', async () => {
+		const template = (time, words) => `${time} <strong>minute(s)</strong> and ${words} <i>word(s)</i>`
+		const { getByTestId } = render(Readotron, { props: { selector: '#foo', template } })
+		await waitFor(() => expect(getByTestId('__readotron-root__')).toHaveTextContent('1 minute(s) and 1 word(s)'))
+	})
+
+	it('renders parsed values in custom function template returning random type', async () => {
+		const template = (time, words) => ([1, 2, 3])
+		const { getByTestId } = render(Readotron, { props: { selector: '#foo', template } })
+		await waitFor(() => expect(getByTestId('__readotron-root__')).toHaveTextContent('1,2,3'))
+	})
+
 	it('renders error slot', async () => {
 		const { getByTestId } = render(ErrorSlotTest, {
 			props: { component: Readotron, selector: '#bar' },

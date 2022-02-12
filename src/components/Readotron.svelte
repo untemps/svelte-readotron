@@ -4,6 +4,7 @@
     import {DOMObserver} from '@untemps/dom-observer'
 
 	import interpolate from '../utils/interpolate'
+	import isFunction from '../utils/isFunction'
 
     import ScrollProgress from '../scroll/ScrollProgress'
 
@@ -69,7 +70,11 @@
         {#if !!error}
             {error}
         {:else if isParsed}
-            {interpolate(template, {time, words}, '%')}
+			{#if isFunction(template)}
+				{@html template(time, words)}
+			{:else}
+				{interpolate(template, {time, words}, '%')}
+			{/if}
 		{:else}
 			{empty}
         {/if}
