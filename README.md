@@ -91,14 +91,8 @@ If a lang is not defined or the provided lang is not listed, the **default** val
 ### Template
 
 You can customize the Readotron display by using the `template` prop.  
-A template is a string with one or more tokens delimited with `%`
 
-#### Avalaible tokens
-
-| Token         | Description                                                                                                      |
-| ------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `time`        | Estimated reading time (in minutes)                                                                              |
-| `words`       | Number of words                                                                                                  |
+- A template can be a string with one or more tokens delimited with `%`
 
 #### Example
 
@@ -115,15 +109,39 @@ A template is a string with one or more tokens delimited with `%`
 </main>
 ```
 
+- A template can be a function with `time` and `words` as arguments.  
+The function should return a template literal with the markup to display using optionally arguments as placeholders. But it may return any displayable type as well.
+
+> :warning: The string will be parsed with the `{@html}` expression: **Be very careful with the content you pass or allow to pass in to this prop!**
+
+#### Example
+
+```html
+<script>
+    import Readotron from '@untemps/svelte-readotron'
+</script>
+
+<main>
+    <Readotron selector=".text" template={(time, words) => `<Icon name='clock'> <strong>Reading Time: ${time} minutes</strong> (${words} words)`}/>
+    <section class="text">
+        ...
+    </section>
+</main>
+```
+
+#### Avalaible tokens/arguments
+
+| Token         | Description                                                                                                      |
+| ------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `time`        | Estimated reading time (in minutes)                                                                              |
+| `words`       | Number of words                                                                                                  |
+
 ### Scroll Support
 
 You are able to track and update component values by opting in the `withScroll` flag.
 This will change the `time` (remaining time to read) and `words` (number of remaining words) as the user scroll the document.
 
----
-*Note: There is no support for `element` scrolling so far, `document` only.*
-
----
+> Note: There is no support for `element` scrolling so far, `document` only.
 
 The component uses the [scrollProgress](https://github.com/jeremenichelli/scrollProgress) underhand package to track document scrolling.
 
@@ -353,12 +371,12 @@ Error message is passed back to the component for display purpose if needed (see
 
 ### API
 
-| Props           | Type              | Default              | Description                                                                                                                                                       |
-| --------------- | ----------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `selector`      | string            | (required)           | Selector of the element which contains the content to parse. See [document.querySelector](https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector)   |
-| `lang`          | string            | 'en'                 | Lang of the content [""ar', 'zh', 'nl', 'en', 'fi', 'fr', 'de', 'he', 'it', 'ko', 'es', 'sv']                                                                     |
-| `template`      | string            | '%time% min read'    | Display template which contains dynamic token to be replaced by the parsed values                                                                                 |
-| `withScroll`    | boolean           | false                | Enable updates on scroll. If true, `time` and `words` values will reflect the document scroll position                                                            |
+| Props        | Type               | Default           | Description                                                                                                                                                     |
+|--------------|--------------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `selector`   | string             | (required)        | Selector of the element which contains the content to parse. See [document.querySelector](https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector) |
+| `lang`       | string             | 'en'              | Lang of the content [""ar', 'zh', 'nl', 'en', 'fi', 'fr', 'de', 'he', 'it', 'ko', 'es', 'sv']                                                                   |
+| `template`   | string or function | '%time% min read' | Display template which contains dynamic tokens to be replaced by the parsed values. See [Template](#template)                                                   |
+| `withScroll` | boolean            | false             | Enable updates on scroll. If true, `time` and `words` values will reflect the document scroll position                                                          |
 
 ### Events
 
