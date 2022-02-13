@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/untemps/svelte-readotron/compare/v1.4.4...v1.5.0) (2022-02-13)
+
+
+### Features
+
+* Allow passing function in template prop ([#43](https://github.com/untemps/svelte-readotron/issues/43)) ([7334bc7](https://github.com/untemps/svelte-readotron/commit/7334bc7564b6bbb1ac03c1e0013158fd95d70e6f))
+
 ## [1.4.4](https://github.com/untemps/svelte-readotron/compare/v1.4.3...v1.4.4) (2022-02-11)
 
 ## [1.4.3](https://github.com/untemps/svelte-readotron/compare/v1.4.2...v1.4.3) (2022-01-14)
