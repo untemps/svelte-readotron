@@ -2,9 +2,8 @@
     import {createEventDispatcher, onDestroy, onMount} from 'svelte'
     import {ReadPerMinute} from '@untemps/read-per-minute'
     import {DOMObserver} from '@untemps/dom-observer'
-
-	import interpolate from '../utils/interpolate'
-	import isFunction from '../utils/isFunction'
+	import { interpolate } from '@untemps/utils/string/interpolate'
+	import { isFunction } from '@untemps/utils/function/isFunction'
 
     import ScrollProgress from '../scroll/ScrollProgress'
 
