@@ -48,7 +48,7 @@ describe('Readotron', () => {
 	})
 
 	it('renders parsed values in custom function template returning random type', async () => {
-		const template = (time, words) => ([1, 2, 3])
+		const template = (time, words) => [1, 2, 3]
 		const { getByTestId } = render(Readotron, { props: { selector: '#foo', template } })
 		await waitFor(() => expect(getByTestId('__readotron-root__')).toHaveTextContent('1,2,3'))
 	})

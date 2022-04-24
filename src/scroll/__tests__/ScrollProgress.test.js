@@ -13,7 +13,7 @@ describe('ScrollProgress', () => {
 			innerWidth: 800,
 			innerHeight: 600,
 			scrollX: 0,
-			scrollY: 0
+			scrollY: 0,
 		})
 	})
 

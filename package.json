@@ -43,10 +43,11 @@
 		"@testing-library/dom": "^8.11.3",
 		"@testing-library/jest-dom": "^5.16.2",
 		"@testing-library/svelte": "^3.0.3",
-		"babel-jest": "^27.5.1",
+		"babel-jest": "^28.0.0-alpha.11",
 		"cross-env": "^7.0.3",
 		"husky": "^7.0.4",
-		"jest": "^27.5.1",
+		"jest": "^28.0.0-alpha.11",
+		"jest-environment-jsdom": "^28.0.0-alpha.11",
 		"prettier": "^2.2.1",
 		"rimraf": "^3.0.2",
 		"rollup": "^2.67.2",
@@ -60,7 +61,8 @@
 	},
 	"dependencies": {
 		"@untemps/dom-observer": "^2.0.0",
-		"@untemps/read-per-minute": "^1.0.1"
+		"@untemps/read-per-minute": "^1.0.1",
+		"@untemps/utils": "^2.0.0-beta.1"
 	},
 	"jest": {
 		"transform": {
