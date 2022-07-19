@@ -19,8 +19,9 @@ export default {
 		}[target],
 		format: target,
 		sourcemap: 'inline',
+		exports: 'auto'
 	},
-	external: id => !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/'),
+	external: id => /node_modules/gi.test(id),
 	plugins: [
 		svelte(),
 		babel({

@@ -1,5 +1,5 @@
 <script>
-    import Readotron from '../../src'
+    import Readotron from '../../dist/index.es'
 
     let contentPromise = null
     let numParagraphs = 15
