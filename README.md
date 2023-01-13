@@ -8,7 +8,7 @@
 ---
 
 [![npm](https://img.shields.io/npm/v/@untemps/svelte-readotron?style=for-the-badge)](https://www.npmjs.com/package/@untemps/svelte-readotron)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/untemps/svelte-readotron/deploy?style=for-the-badge)](https://github.com/untemps/svelte-readotron/actions)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/untemps/svelte-readotron/index.yml?style=for-the-badge)](https://github.com/untemps/svelte-readotron/actions)
 [![Codecov](https://img.shields.io/codecov/c/github/untemps/svelte-readotron?style=for-the-badge)](https://codecov.io/gh/untemps/svelte-readotron)
 
 ## Demo
