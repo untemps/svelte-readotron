@@ -1,9 +1,33 @@
-/**
- * @jest-environment jsdom
- */
-
-import ScrollProgress from '../ScrollProgress'
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 import { fireEvent } from '@testing-library/dom'
+
+import ScrollProgress from '../ScrollProgress.js'
+
+describe('ScrollProgress: coverage only', () => {
+	let instance
+
+	beforeEach(() => {
+		window = Object.assign(window, {
+			innerWidth: 0,
+			innerHeight: 0,
+			scrollX: undefined,
+			scrollY: undefined,
+		})
+	})
+
+	afterEach(() => {
+		instance.destroy()
+	})
+
+	test('sets trigger function to noop', async () => {
+		const onScroll = vi.fn(() => 0)
+		instance = new ScrollProgress(onScroll)
+	})
+
+	test('fallbacks calculation properties', async () => {
+		instance = new ScrollProgress(0)
+	})
+})
 
 describe('ScrollProgress', () => {
 	let instance
@@ -21,16 +45,16 @@ describe('ScrollProgress', () => {
 		instance.destroy()
 	})
 
-	it('triggers handler on scroll', async () => {
-		const onScroll = jest.fn()
+	test('triggers handler on scroll', async () => {
+		const onScroll = vi.fn(() => 0)
 		instance = new ScrollProgress(onScroll)
 		await fireEvent.scroll(window, { target: { scrollY: 300 } })
 		expect(onScroll).toHaveBeenNthCalledWith(1, 0, 0)
 		expect(onScroll).toHaveBeenNthCalledWith(2, 0, 0.5)
 	})
 
-	it('triggers handler on resize', async () => {
-		const onScroll = jest.fn()
+	test('triggers handler on resize', async () => {
+		const onScroll = vi.fn(() => 0)
 		window.scrollY = 300
 		instance = new ScrollProgress(onScroll)
 		await fireEvent.resize(window, { target: { innerHeight: 1200 } })
@@ -38,8 +62,8 @@ describe('ScrollProgress', () => {
 		expect(onScroll).toHaveBeenNthCalledWith(2, 0, 0.25)
 	})
 
-	it('triggers handler on trigger function call', async () => {
-		const onScroll = jest.fn()
+	test('triggers handler on trigger function call', async () => {
+		const onScroll = vi.fn(() => 0)
 		window.scrollY = 300
 		instance = new ScrollProgress(onScroll)
 		instance.trigger()
