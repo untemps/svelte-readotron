@@ -73,7 +73,7 @@
 	@media (min-width: 640px) {
 		.content {
 			font-size: 2em;
-			max-width: 800px;
+			max-width: 1024px;
 		}
 	}
 
