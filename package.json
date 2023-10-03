@@ -1,6 +1,6 @@
 {
 	"name": "@untemps/svelte-readotron",
-	"version": "1.5.2",
+	"version": "2.0.0",
 	"author": "Vincent Le Badezet <v.lebadezet@untemps.net>",
 	"homepage": "https://svelte-readotron.vercel.app",
 	"repository": "git@github.com:untemps/svelte-readotron.git",

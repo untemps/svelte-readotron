@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/untemps/svelte-readotron/compare/v1.5.2...v2.0.0) (2023-10-03)
+
+### chore
+
+-   Upgrade to svelte 4 ([#50](https://github.com/untemps/svelte-readotron/issues/50)) ([d826947](https://github.com/untemps/svelte-readotron/commit/d8269475fdb01e0a9a6d330cde696c536580a5b3))
+
+### BREAKING CHANGES
+
+-   No more cjs build
+
 ## [1.5.2](https://github.com/untemps/svelte-readotron/compare/v1.5.1...v1.5.2) (2022-09-02)
 
 ## [1.5.1](https://github.com/untemps/svelte-readotron/compare/v1.5.0...v1.5.1) (2022-07-19)
