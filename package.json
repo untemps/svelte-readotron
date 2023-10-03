@@ -2,7 +2,7 @@
 	"name": "@untemps/svelte-readotron",
 	"version": "1.5.2",
 	"author": "Vincent Le Badezet <v.lebadezet@untemps.net>",
-	"homepage": "https://github.com/untemps/svelte-readotron",
+	"homepage": "https://svelte-readotron.vercel.app",
 	"repository": "git@github.com:untemps/svelte-readotron.git",
 	"bugs": "https://github.com/untemps/svelte-readotron/issues",
 	"license": "MIT",
