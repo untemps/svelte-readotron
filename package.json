@@ -117,7 +117,7 @@
 		"test": "vitest watch --coverage",
 		"test:ci": "vitest run --coverage",
 		"lint": "prettier --check .",
-		"format": "prettier --write .",
+		"format": "prettier --write . && git add . && git status",
 		"prepare": "husky install"
 	}
 }
